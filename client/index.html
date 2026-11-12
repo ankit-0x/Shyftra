@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Shyftra — The Premier On-Demand Gig Marketplace</title>
+    <meta name="theme-color" content="#faf0e6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Sets data-theme on <html> BEFORE React mounts, from whatever's in
+         localStorage already — so the very first paint matches the saved
+         preference instead of flashing light mode for a frame first. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("shyftra_theme");
+          var theme =
+            saved === "shyftraLight" || saved === "shyftraDark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "shyftraDark"
+              : "shyftraLight";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </body>
+</html>
