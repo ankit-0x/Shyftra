@@ -63,6 +63,8 @@ export default function TransactionHistory() {
   const [openTxId, setOpenTxId] = useState(null);
   const tick = useLiveTick("transactions:changed");
 
+  const { user } = useSelector((state) => state.auth);
+
   useEffect(() => {
     dispatch(
       fetchTransactions({
