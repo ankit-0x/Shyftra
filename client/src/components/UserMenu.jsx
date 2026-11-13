@@ -134,10 +134,19 @@ function UserMenu({ alwaysShowLinks = false }) {
                 <IndianRupee className="w-4 h-4" /> Earnings
               </Link>
             </li>
+            <li>
+              <Link
+                to="/transactions"
+                className={getMenuClass("/transactions")}
+                onClick={handleLinkClick}
+              >
+                <Wallet className="w-4 h-4" /> Transactions
+              </Link>
+            </li>
           </>
         )}
 
-                {user.role === "employer" && (
+        {user.role === "employer" && (
           <>
             <li className={linkClassWrapper}>
               <Link
@@ -175,6 +184,15 @@ function UserMenu({ alwaysShowLinks = false }) {
                 <Users className="w-4 h-4" /> Browse Workers
               </Link>
             </li>
+            <li>
+              <Link
+                to="/transactions"
+                className={getMenuClass("/transactions")}
+                onClick={handleLinkClick}
+              >
+                <Wallet className="w-4 h-4" /> Transactions
+              </Link>
+            </li>
           </>
         )}
 
@@ -191,16 +209,7 @@ function UserMenu({ alwaysShowLinks = false }) {
         )}
 
         {/* ---------- Global links (Profile + Logout) ---------- */}
-        <li>
-          <Link
-            to="/transactions"
-            className={getMenuClass("/transactions")}
-            onClick={handleLinkClick}
-          >
-            <Wallet className="w-4 h-4" /> Transactions
-          </Link>
-        </li>
-       
+
         <li>
           <Link
             to="/profile"
