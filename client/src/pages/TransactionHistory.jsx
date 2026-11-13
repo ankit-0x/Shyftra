@@ -92,9 +92,9 @@ export default function TransactionHistory() {
   const totalIn = totals?.credit?.total ?? 0;
   const totalOut = totals?.debit?.total ?? 0;
 
-  if (user && (user.role !== "employer" || user.role!=='worker')) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  if (user && !["employer", "worker"].includes(user.role)) {
+  return <Navigate to="/dashboard" replace />;
+}
 
   return (
     <div className="min-h-screen bg-base-200/50 px-3 py-4 sm:px-4 sm:py-6 md:px-6 lg:px-8 lg:py-8">
