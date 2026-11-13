@@ -91,6 +91,11 @@ export default function TransactionHistory() {
   // independent of pagination. Fresh on every fetch.
   const totalIn = totals?.credit?.total ?? 0;
   const totalOut = totals?.debit?.total ?? 0;
+
+  if (user && (user.role !== "employer" || user.role!=='worker')) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   return (
     <div className="min-h-screen bg-base-200/50 px-3 py-4 sm:px-4 sm:py-6 md:px-6 lg:px-8 lg:py-8">
       <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
